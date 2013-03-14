@@ -26,11 +26,11 @@ page:
 - two buttons in the header, courses i'm shopping and courses i'm following.
 
 - a list with the courses.
-    - lists course names clicking the course will result in a detail page
-    - the detail page will have a remove from list button
+    lists course names clicking the course will result in a detail page and
+    the detail page will have a remove from list button
 
 - an add course button at the bottom of the page (not the bottom of the list).
-    - the add course button will show the search bar
+    the add course button will show the search bar
 
 - a notification bar that gives hints about navigating the app (hints like mouse-over naming, 
 breadcrumbs, a loading icon etc).
