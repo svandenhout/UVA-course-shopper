@@ -10,27 +10,27 @@ Design demands (ontwerp eissen)
 
 - user knows clearly at what step of the process they are
 
-- the user can always add a course easily
+- adding and removing courses is easy
 
-- all the functionality of the mobile app must be visible on the first screen
+- all the functionalities must be visible on the first screen
 
 - prefer images over text
 
-- design for tiny space
+- design for little space
 
 flow
 ----
 
-page:
-
 - two buttons in the header, courses i'm shopping and courses i'm following.
 
 - a list with the courses.
-    lists course names clicking the course will result in a detail page and
-    the detail page will have a remove from list button
+    
+	lists course names clicking the course will result in a detail page and
+    	the detail page will have a remove from list button
 
 - an add course button at the bottom of the page (not the bottom of the list).
-    the add course button will show the search bar
+	
+	the add course button will show the search bar
 
 - a notification bar that gives hints about navigating the app (hints like mouse-over naming, 
 breadcrumbs, a loading icon etc).
@@ -59,9 +59,9 @@ To save the lists i will use html5 local storage.
 languages & libraries used
 --------------------------
 
--ruby
--javascript
--html/css
+- ruby
+- javascript
+- html/css
 
--rails framework
--jquery / jquery-mobile
+- rails framework
+- jquery / jquery-mobile
