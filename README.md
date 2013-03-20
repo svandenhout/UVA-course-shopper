@@ -56,6 +56,31 @@ the full courses file in sqlite.
 
 To save the lists i will use html5 local storage.
 
+Models, Controllers & views
+---------------------------
+
+2 models
+
+- model 1 will make a table with only (id, catalog numbers, titles,
+descriptions and instructors’ names). 
+- model 2 will make a table out of every xml tag in courses.xml
+
+the controllers will correspond to the models, 
+
+- one controller that saves a sqlite file locally for the views to use. 
+And it will implement search on the local database. 
+- what will local storage save and how will i use it?
+- And one controller that fills the detail page of a course. 
+
+views
+
+- 2 views for the courses i'm shopping and courses i'm following lists
+- 2 views for the search, one to add a course to the courses i'm shopping list 
+and one to add a course to the courses i'm following list
+- 2 views for the detail page, one view is called from the list pages that just 
+displays the detail view, the other view is called from the search results it will
+show an add button in the view
+
 languages & libraries used
 --------------------------
 
@@ -64,4 +89,4 @@ languages & libraries used
 - html/css
 
 - rails framework
-- jquery / jquery-mobile
+- jquery/jquery-mobile
