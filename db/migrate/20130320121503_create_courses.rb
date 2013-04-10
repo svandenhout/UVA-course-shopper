@@ -3,14 +3,12 @@ class CreateCourses < ActiveRecord::Migration
     create_table :courses do |t|
       t.string :catalog_number
       t.string :name
-      t.int :ects
+      t.integer :ects
       t.string :institute
-      t.string :staff
+      t.text :staff
       t.string :programmes
-      t.string :description
-      t.string :participant_count
-
-      t.timestamps
+      t.text :description
+      t.integer :participant_count
     end
   end
 end
