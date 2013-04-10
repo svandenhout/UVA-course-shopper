@@ -8,4 +8,13 @@ class Course < ActiveRecord::Base
                   :participant_count,
                   :programmes,
                   :staff
+                  
+	def self.search(search)
+  	if search
+    	where('name LIKE ?', "%#{search}%")
+		else
+		  find(:all)
+		end
+	end
+	
 end

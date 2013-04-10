@@ -1,6 +1,15 @@
 Project2::Application.routes.draw do
-  root :to => "home#index"
+root :to => "courses#index"
+	
+	resources :courses
+	
+  get "courses/index"
 
+  get "courses/show"
+
+  get "courses/new"
+
+  get "courses/edit"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'nokogiri'
 
-def parseXml(fileName)
+def parseXmlToDB(fileName)
   f = File.open(fileName)
   table = Hash.new
   doc = Nokogiri::XML(f)
@@ -30,4 +30,20 @@ def parseXml(fileName)
   f.close
 end
 
-parseXml('db/courses.xml')
+def parseXmlToSearchDB(fileName)
+	f = File.open(fileName)
+  table = Hash.new
+  doc = Nokogiri::XML(f)
+  
+  # geen xpath om xml te parsen dan.....
+  doc.xpath('courses/course').each do |course|
+    
+    table['catalog_number'] = course.xpath('@sgid').text.strip
+    table['description'] = course.xpath('description').text.strip
+    table['name'] = course.xpath('name').text.strip
+    table['staff'] = course.xpath('staff_list/staff/name').text.strip
+    
+    SearchCourse.create(table)
+  end
+
+parseXmlToDB('db/courses.xml')
