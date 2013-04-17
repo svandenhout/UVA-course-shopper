@@ -8,9 +8,6 @@ class Course < ActiveRecord::Base
                   :participant_count,
                   :programmes,
                   :staff
-                
-  include Tire::Model::Search
-	include Tire::Model::Callbacks
 	
 	def self.search(search)
   	if search
