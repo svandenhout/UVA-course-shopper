@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
-  def index
-  	@courses = Course.search(params[:search])
+  def index	
+  	@courses = Course.search(params[:query])
   end
 
   def show

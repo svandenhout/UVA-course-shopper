@@ -1,17 +1,20 @@
 <h1>Courses#index</h1>
 
-<%= form_tag courses_path, :method => 'get' do %>
+<%= form_tag courses_path, method: :get do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil %>
   </p>
+<% end %> 
+
+<% if(params[:query]) %>
+	<% @courses.each do |course| %>
+		<h1><%= course.name %></h1>
+		<p><%= course.catalog_number%></p>
+		<p><%= course.staff%></p>
+		<p><%= course.description %></p>
+	<% end %>
 <% end %>
 
-<% @courses.each do |course| %>
-	<h1><%= course.name %></h1>
-	<p><%= course.catalog_number%></p>
-	<p><%= course.staff%></p>
-	<p><%= course.description %></p>
-<% end %>
 
 <p>Find me in app/views/courses/index.html.erb</p>

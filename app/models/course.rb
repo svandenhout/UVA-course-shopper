@@ -8,13 +8,18 @@ class Course < ActiveRecord::Base
                   :participant_count,
                   :programmes,
                   :staff
-                  
+                
+  include Tire::Model::Search
+	include Tire::Model::Callbacks
+	
 	def self.search(search)
   	if search
-    	where('name LIKE ?', "%#{search}%")
-		else
-		  find(:all)
-		end
+  	  find(:all, :conditions => [
+  	  	'name LIKE ? OR catalog_number LIKE ? OR staff LIKE ? OR description LIKE ?', 
+  	  	"%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
+  	  ])
+  	else
+  	  find(:all)
+  	end
 	end
-	
 end
