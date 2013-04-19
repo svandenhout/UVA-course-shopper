@@ -1,3 +1,23 @@
 // Place all the styles related to the courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$color: #EEEEEE;
+
+body {
+	border-color: #CCCCCC;
+	font-family: georgia;
+}
+
+.detail p {
+	background-color: $color;
+}
+
+.search-block p {
+	width: 100%;
+	line-height: 16px;
+	max-height: 32px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	background-color: $color;
+}

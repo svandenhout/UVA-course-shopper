@@ -1,4 +1,8 @@
 Project2::Application.routes.draw do
+  get "courses_following_list/index"
+
+  get "courses_shopping_list/index"
+
 root :to => "courses#index"
 	
 	resources :courses

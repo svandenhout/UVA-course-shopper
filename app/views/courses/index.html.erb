@@ -1,20 +1,35 @@
-<h1>Courses#index</h1>
-
 <%= form_tag courses_path, method: :get do %>
   <p>
     <%= text_field_tag :query, params[:query] %>
     <%= submit_tag "Search", name: nil %>
   </p>
-<% end %> 
-
-<% if(params[:query]) %>
-	<% @courses.each do |course| %>
-		<h1><%= course.name %></h1>
-		<p><%= course.catalog_number%></p>
-		<p><%= course.staff%></p>
-		<p><%= course.description %></p>
-	<% end %>
 <% end %>
 
-
-<p>Find me in app/views/courses/index.html.erb</p>
+<% if params[:query] && params[:query] != "" %>
+	<% if !@courses.empty? %>
+		<% @courses.each do |course| %>
+			<div class="search-block">
+				<h1><%= course.name %></h1>
+					<%= link_to 'view', course %>
+					
+					<!-- 
+						een op techniek om alles vanuit een element in javascript
+						uit te lezen 
+					-->
+					<%= button_tag 'add',
+							:id => course.id, 
+							:name => course.name,
+							:catalog_number => course.catalog_number,
+							:staff => course.staff,
+							:description => course.description,
+							:class => 'add' 
+					%>
+				<p><%= course.catalog_number %></p>
+				<p><%= course.staff %></p>
+				<p><%= course.description %></p>
+			</div>
+		<% end %>
+	<% else %>
+		<div> no results for search </div>
+	<% end %>
+<% end %>

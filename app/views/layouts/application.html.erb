@@ -6,9 +6,14 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body">
 
+<%= button_tag "My shopping list", :class => "shoppingListButton" %>
+<%= button_tag "Courses I'm following", :class => "coursesFollowingButton" %>
 <%= yield %>
 
+<script> 
+
+</script>
 </body>
 </html>
