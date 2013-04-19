@@ -12,4 +12,12 @@ class CoursesController < ApplicationController
     	format.json  { render :json => @course }
   	end
   end
+  
+  def following_list
+  	
+  end
+  
+  def shopping_list
+  
+  end
 end

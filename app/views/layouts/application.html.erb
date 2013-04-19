@@ -8,12 +8,9 @@
 </head>
 <body">
 
-<%= button_tag "My shopping list", :class => "shoppingListButton" %>
-<%= button_tag "Courses I'm following", :class => "coursesFollowingButton" %>
+<%= link_to "My shopping list", { :controller => "courses", :action => "shopping_list" } %>
+<%= link_to "Courses I'm following", { :controller => "courses", :action => "following_list" } %>
 <%= yield %>
 
-<script> 
-
-</script>
 </body>
 </html>

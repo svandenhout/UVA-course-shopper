@@ -1,19 +1,16 @@
 Project2::Application.routes.draw do
-  get "courses_following_list/index"
-
-  get "courses_shopping_list/index"
-
+  
 root :to => "courses#index"
 	
-	resources :courses
-	
-  get "courses/index"
-
-  get "courses/show"
-
-  get "courses/new"
-
-  get "courses/edit"
+	resource :courses do
+		collection do
+			get "index"
+			get "show"
+			get "following_list"
+			get "shopping_list"
+		end
+	end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
