@@ -1,11 +1,9 @@
 Project2::Application.routes.draw do
   
-root :to => "courses#index"
+root :to => "courses#shopping_list"
 	
-	resource :courses do
+	resources :courses, :only => [:index, :show] do
 		collection do
-			get "index"
-			get "show"
 			get "following_list"
 			get "shopping_list"
 		end

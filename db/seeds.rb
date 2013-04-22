@@ -9,11 +9,12 @@ require 'nokogiri'
 
 def parseXmlToDB(fileName)
   f = File.open(fileName)
-  table = Hash.new
+  
   doc = Nokogiri::XML(f)
   
   # geen xpath om xml te parsen dan.....
   doc.xpath('courses/course').each do |course|
+    table = Hash.new
     
     table['catalog_number'] = course.xpath('@sgid').text.strip
     table['description'] = course.xpath('description').text.strip
@@ -32,4 +33,3 @@ def parseXmlToDB(fileName)
 end
 
 parseXmlToDB('db/courses.xml')
-

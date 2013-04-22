@@ -1,10 +1,10 @@
 <div class="detail">
-	<h1><%= @course.name %></h1>
-	<p><%= @course.catalog_number %></p>
-	<p><%= @course.description %></p>
-	<p><%= @course.ects %></p>
-	<p><%= @course.institute %></p>
-	<p><%= @course.participant_count %></p>
-	<p><%= @course.programmes %></p>
-	<p><%= @course.staff %></p>
+	<div class="name"><h1><%= raw(@course.name %></h1></div>
+	<div class="catalog_number"><%= raw(@course.catalog_number) %></div>
+	<div class="description"><%= raw(@course.description) %></div>
+	<div class="ects"><%= raw(@course.ects) %></div>
+	<div class="institute"><%= raw(@course.institute) %></div>
+	<div class="participant_count"><%= raw(@course.participant_count) %></div>
+	<div class="programmes"><%= raw(@course.programmes) %></div>
+	<div class="staff"><%= raw(@course.staff) %></div>
 </div>
