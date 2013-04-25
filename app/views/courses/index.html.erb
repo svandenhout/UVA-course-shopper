@@ -1,26 +1,31 @@
-<!-- how to make both lists searchable -->
+<div class="index-container">
+  <%= form_tag courses_path, method: :get do %>
+    <p>
+      <%= hidden_field_tag :type, params[:type] %>
+      <%= text_field_tag :query, params[:query] %>
+      <%= submit_tag "Search", name: nil %>
+    </p>
+  <% end %>
 
-<%= form_tag courses_path, method: :get do %>
-  <p>
-  	<%= hidden_field_tag :type, params[:type] %>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-<% end %>
+  <div class="search">
+    <% if params[:query] && params[:query] != "" %>
+      <% if !@courses.empty? %>
+        <% @courses.each do |course| %>
+          <div class="search-block, <%= course.id %>">
+            <div class="name"><h1><%= raw(course.name) %></h1></div>
+              <%= link_to "view", course %>
+              <%= button_tag 'add', :id => course.id, :class => 'add' %>
+            <div class="catalog_number"><%= raw(course.catalog_number) %></div>
+            <div class="staff"><%= raw(course.staff) %></div>
+            <div class="description"><%= raw(course.description) %></div>
+          </div>
+        <% end %>
+      <% else %>
+        <div> no results for search </div>
+      <% end %>
+    <% end %>
+  </div>
 
-<% if params[:query] && params[:query] != "" %>
-	<% if !@courses.empty? %>
-		<% @courses.each do |course| %>
-			<div class="search-block, <%= course.id %>">
-				<div class="name"><h1><%= raw(course.name) %></h1></div>
-					<%= link_to "view", course %>
-					<%= button_tag 'add', :id => course.id, :class => 'add' %>
-				<div class="catalog_number"><%= raw(course.catalog_number) %></div>
-				<div class="staff"><%= raw(course.staff) %></div>
-				<div class="description"><%= raw(course.description) %></div>
-			</div>
-		<% end %>
-	<% else %>
-		<div> no results for search </div>
-	<% end %>
-<% end %>
+  <div class="recently">
+  </div>
+</div>

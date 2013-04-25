@@ -3,9 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $color: #EEEEEE;
+$border-color: #CCCCCC;
 
 body {
-	border-color: #CCCCCC;
+	border-color: $border-color;
 	font-family: georgia;
 }
 
@@ -20,4 +21,25 @@ body {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	background-color: $color;
+}
+
+/* index page css */
+.index-container {
+  height: 480pt;
+}
+
+.index-container .search {
+  height: 50%;
+  border: solid;
+  border-width: 1px;
+  border-color: $border-color;
+  overflow: auto;
+}
+
+.index-container .recently {
+  height: 50%;
+  border: solid;
+  border-width: 1px;
+  border-color: $border-color;
+  overflow: auto;
 }
