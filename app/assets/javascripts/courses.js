@@ -119,7 +119,6 @@ $(document).ready(function() {
   }
 
   if($(".recently").length !== 0) {
-  	console.log("hallo")
 		for(var i = 0; i < list.recentlylist.length; i++) {
       $(".recently").append(list.recentlylist[i].show)
       $(".recently").append("<h1>" + list.recentlylist[i].name + "</h1>")
@@ -164,10 +163,11 @@ $(document).ready(function() {
     var id = $(this).attr('id');
 
     // content passed through content
-    var name = $(this).parent().find(".name").html();
-    var catalog_number = $(this).parent().find(".catalog_number").html();
-    var staff = $(this).parent().find(".staff").html();
-    var description = $(this).parent().find(".description").html();
+    var name = $(this).parent().parent().find(".name").html();
+    var catalog_number =
+    	$(this).parent().parent().find(".catalog-number").html();
+    var staff = $(this).parent().parent().find(".staff").html();
+    var description = $(this).parent().parent().find(".description").html();
     
     list.addObjectToList({
       type: type,

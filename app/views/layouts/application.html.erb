@@ -6,18 +6,39 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body">
+<body>
 
-<% if params[:type] == "shopping" %>
-	<%= link_to "My shopping list", shopping_list_courses_path(:type => "shopping"), :class => "shopping" %>
-	<%= link_to "Courses I'm following",following_list_courses_path(:type => "following") %>
-<% elsif params[:type] == "following" %>
-	<%= link_to "My shopping list", shopping_list_courses_path(:type => "shopping") %>
-	<%= link_to "Courses I'm following",following_list_courses_path(:type => "following"), :class => "following" %>
-<% else %>
-	<%= link_to "My shopping list", shopping_list_courses_path(:type => "shopping") %>
-	<%= link_to "Courses I'm following",following_list_courses_path(:type => "following") %>
-<% end %>
+<div class="header">
+  <% if params[:type] == "shopping" %>
+    <%=
+    	link_to "My shopping list",
+      shopping_list_courses_path(:type => "shopping"),
+      :class => "shopping"
+    %>
+    <%=
+    	link_to "Courses I'm following",
+      following_list_courses_path(:type => "following")
+    %>
+  <% elsif params[:type] == "following" %>
+    <%=
+      link_to "My shopping list",
+      shopping_list_courses_path(:type => "shopping")
+    %>
+    <%= link_to "Courses I'm following",
+      following_list_courses_path(:type => "following"),
+      :class => "following"
+    %>
+  <% else %>
+    <%=
+      link_to "My shopping list",
+      shopping_list_courses_path(:type => "shopping")
+  	%>
+    <%=
+    	link_to "Courses I'm following",
+      following_list_courses_path(:type => "following")
+    %>
+  <% end %>
+</div>
 <%= yield %>
 
 </body>

@@ -5,8 +5,16 @@
 $color: #EEEEEE;
 $border-color: #CCCCCC;
 
+html {
+	height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-	border-color: $border-color;
+	height: 100%;
+  margin: 0;
+  padding: 0;
 	font-family: georgia;
 }
 
@@ -14,22 +22,33 @@ body {
 	background-color: $color;
 }
 
-.search-block p {
-	width: 100%;
-	line-height: 16px;
-	max-height: 32px;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	background-color: $color;
+/* template css */
+.header {
+	height: 20%;
+}
+
+.header a {
+	display: block;
+	width: 150pt;
+  height: 60pt;
+  float: left;
+	background-image: url('list-button.png');
+  background-size: 150pt 60pt;
+  text-align: center;
+  line-height: 50pt;
+}
+
+.header .shopping {
+	background-image: url('current-list-button.png');
+}
+
+.header .following {
+	background-image: url('current-list-button.png');
 }
 
 /* index page css */
-.index-container {
-  height: 480pt;
-}
-
 .index-container .search {
-  height: 50%;
+  height: 40%;
   border: solid;
   border-width: 1px;
   border-color: $border-color;
@@ -37,9 +56,49 @@ body {
 }
 
 .index-container .recently {
-  height: 50%;
+  height: 40%;
   border: solid;
   border-width: 1px;
   border-color: $border-color;
   overflow: auto;
+}
+
+/* search results */
+.search-block {
+	height: 55pt;
+	border-bottom: solid;
+  border-width: 1px;
+  border-color: $border-color;
+}
+
+.search-block .name {
+	overflow: auto;
+}
+
+.search-block .name h1 {
+	margin: 0;
+	font-size: 16pt;
+  float: left;
+}
+
+.search-block .catalog-number {
+	display: none;
+}
+
+.search-block .staff {
+	
+}
+
+.search-block .description {
+	display: none;
+}
+
+.search-block .name .view {
+	float: right;
+  margin: 5pt 10pt 0pt 0pt;
+}
+
+.search-block .name .add {
+	float: right;
+  margin: 5pt 10pt 0pt 0pt;
 }
