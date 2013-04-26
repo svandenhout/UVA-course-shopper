@@ -43,13 +43,17 @@ $(document).ready(function() {
       if(this.checkDoubleId(object.id, this.followinglist)) {
         this.followinglist.push(object);
         this.storeFollowingLocal(this.followinglist);
-      }
+        }else {
+        	alert("you have already added this course to the list");
+        }
   	}
 
     if(object.type === "shopping") {
       if(this.checkDoubleId(object.id, this.shoppinglist)) {
         this.shoppinglist.push(object);
         this.storeShoppingLocal(this.shoppinglist);
+      }else {
+				alert("you have already added this course to the list");
       }
     }
 
@@ -80,7 +84,6 @@ $(document).ready(function() {
   var array = list;
     for(var i = 0; i < array.length; i++) {
       if(array[i].id === id) {
-        alert("you have already added this course to the list");
         return false;
       }
     }
@@ -100,43 +103,51 @@ $(document).ready(function() {
 
   if($("#following_list").length !== 0) {
     for(var i = 0; i < list.followinglist.length; i++) {
-      $("#following_list").append(list.followinglist[i].show)
-      $("#following_list").append("<h1>" + list.followinglist[i].name + "</h1>")
-      $("#following_list").append("<p>" + list.followinglist[i].catalog_number + "</p>")
-      $("#following_list").append("<p>" + list.followinglist[i].staff + "</p>")
-      $("#following_list").append("<p>" + list.followinglist[i].description + "</p>")
+      $("#following_list").append(list.followinglist[i].show);
+      $("#following_list").append("<h1>" + list.followinglist[i].name + "</h1>");
+      $("#following_list").append(
+      	"<p>" + list.followinglist[i].catalog_number + "</p>"
+      );
+      $("#following_list").append("<p>" + list.followinglist[i].staff + "</p>");
+      $("#following_list").append(
+      	"<p>" + list.followinglist[i].description + "</p>"
+      );
     }
   }
 
   if($("#shopping_list").length !== 0) {
     for(var i = 0; i < list.shoppinglist.length; i++) {
-      $("#shopping_list").append(list.shoppinglist[i].show)
-      $("#shopping_list").append("<h1>" + list.shoppinglist[i].name + "</h1>")
-      $("#shopping_list").append("<p>" + list.shoppinglist[i].catalog_number + "</p>")
-      $("#shopping_list").append("<p>" + list.shoppinglist[i].staff + "</p>")
-      $("#shopping_list").append("<p>" + list.shoppinglist[i].description + "</p>")
+      $("#shopping_list").append(list.shoppinglist[i].show);
+      $("#shopping_list").append("<h1>" + list.shoppinglist[i].name + "</h1>");
+      $("#shopping_list").append(
+      	"<p>" + list.shoppinglist[i].catalog_number + "</p>"
+      );
+      $("#shopping_list").append("<p>" + list.shoppinglist[i].staff + "</p>");
+      $("#shopping_list").append(
+      	"<p>" + list.shoppinglist[i].description + "</p>"
+      );
     }
   }
 
   if($(".recently").length !== 0) {
 		for(var i = 0; i < list.recentlylist.length; i++) {
-      $(".recently").append(list.recentlylist[i].show)
-      $(".recently").append("<h1>" + list.recentlylist[i].name + "</h1>")
-      $(".recently").append("<p>" + list.recentlylist[i].catalog_number + "</p>")
-      $(".recently").append("<p>" + list.recentlylist[i].staff + "</p>")
-      $(".recently").append("<p>" + list.recentlylist[i].description + "</p>")
+      $(".recently").append(list.recentlylist[i].show);
+      $(".recently").append("<h1>" + list.recentlylist[i].name + "</h1>");
+      $(".recently").append(
+      	"<p>" + list.recentlylist[i].catalog_number + "</p>"
+      );
+      $(".recently").append("<p>" + list.recentlylist[i].staff + "</p>");
+      $(".recently").append("<p>" + list.recentlylist[i].description + "</p>");
     }
 
   }
   
   // checks for a detail page to add to the recently viewed list
   if($(".detail").length !== 0) {
-		console.log(list);
-
   	var id = $(this).attr('id');
     
-    var name = $(this).find(".name").html();
-    var catalog_number = $(this).find(".catalog_number").html();
+    var name = $(this).find(".name").find("h1").html();
+    var catalog_number = $(this).find(".catalog-number").html();
     var staff = $(this).find(".staff").html();
     var description = $(this).find(".description").html();
 
@@ -160,14 +171,15 @@ $(document).ready(function() {
     }
 
     // content passed through attributes
-    var id = $(this).attr('id');
+    var id = $(this).attr("id");
 
     // content passed through content
-    var name = $(this).parent().parent().find(".name").html();
+    // .add is nested a bit deep so i need a couple of parent() calls
+    var name = $(this).parent().find(".name").find("h1").html();
     var catalog_number =
-    	$(this).parent().parent().find(".catalog-number").html();
-    var staff = $(this).parent().parent().find(".staff").html();
-    var description = $(this).parent().parent().find(".description").html();
+    	$(this).parent().find(".catalog-number").html();
+    var staff = $(this).parent().find(".staff").html();
+    var description = $(this).parent().find(".description").html();
     
     list.addObjectToList({
       type: type,

@@ -1,5 +1,8 @@
 <div class="detail">
-	<div class="name"><h1><%= raw(@course.name) %></h1></div>
+	<div class="name">
+		<h1><%= raw(@course.name) %></h1>
+		<%= button_tag 'add', :id => @course.id, :class => 'add' %>
+  </div>
 	<div class="catalog_number"><%= raw(@course.catalog_number) %></div>
 	<div class="description"><%= raw(@course.description) %></div>
 	<div class="ects"><%= raw(@course.ects) %></div>

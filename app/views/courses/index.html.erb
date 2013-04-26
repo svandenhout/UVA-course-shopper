@@ -10,18 +10,22 @@
 	</div>
 
   <div class="search">
+		<div class="title"> search results </div>
     <% if params[:query] && params[:query] != "" %>
       <% if !@courses.empty? %>
         <% @courses.each do |course| %>
           <div class="search-block">
-            <div class="name">
-							<h1><%= raw(course.name) %></h1>
+
+						<div class="text">
+              <div class="name"><h1><%= raw(course.name) %></h1></div>
+              <div class="staff"><%= raw(course.staff) %></div>
+              <div class="catalog-number"><%= raw(course.catalog_number) %></div>
+              <div class="description"><%= raw(course.description) %></div>
+						</div>
+            <div class="buttons">
               <%= link_to "view", course, :class => 'view' %>
               <%= button_tag 'add', :id => course.id, :class => 'add' %>
-            </div></br>           
-            <div class="staff"><%= raw(course.staff) %></div>
- 						<div class="catalog-number"><%= raw(course.catalog_number) %></div>
-            <div class="description"><%= raw(course.description) %></div>
+            </div>
           </div>
         <% end %>
       <% else %>
@@ -31,5 +35,6 @@
   </div>
 
   <div class="recently">
+		<div class="title">recently viewed</div>
   </div>
 </div>

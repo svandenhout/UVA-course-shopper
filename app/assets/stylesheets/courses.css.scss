@@ -18,13 +18,11 @@ body {
 	font-family: georgia;
 }
 
-.detail p {
-	background-color: $color;
-}
-
 /* template css */
 .header {
-	height: 20%;
+	overflow: hidden;
+	width: 100%;
+	height: 60pt;
 }
 
 .header a {
@@ -49,17 +47,11 @@ body {
 /* index page css */
 .index-container .search {
   height: 40%;
-  border: solid;
-  border-width: 1px;
-  border-color: $border-color;
   overflow: auto;
 }
 
 .index-container .recently {
   height: 40%;
-  border: solid;
-  border-width: 1px;
-  border-color: $border-color;
   overflow: auto;
 }
 
@@ -71,34 +63,44 @@ body {
   border-color: $border-color;
 }
 
-.search-block .name {
-	overflow: auto;
+.search-block .text {
+	float: left;
+  overflow: hidden;
+  white-space:nowrap; 
+  width: calc(100% - 80pt);
 }
 
-.search-block .name h1 {
-	margin: 0;
+.search-block .text .name h1 {
 	font-size: 16pt;
-  float: left;
+  text-overflow: ellipsis;
 }
 
-.search-block .catalog-number {
+.search-block .text .catalog-number {
 	display: none;
 }
 
-.search-block .staff {
-	
-}
-
-.search-block .description {
+.search-block .text .description {
 	display: none;
 }
 
-.search-block .name .view {
-	float: right;
+.search-block .buttons {
+	position: absolute;
+	right: 0;
+}
+
+.search-block .buttons .view {
   margin: 5pt 10pt 0pt 0pt;
 }
 
-.search-block .name .add {
-	float: right;
+.search-block .buttons .add {
   margin: 5pt 10pt 0pt 0pt;
+}
+
+/* recently viewed */
+.title {
+	height: 20pt;
+  width: 100%;
+  text-align: center;
+	background-color: #444444;
+  color: #DDDDDD;
 }
