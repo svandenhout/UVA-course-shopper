@@ -14,9 +14,9 @@
     <% if params[:query] && params[:query] != "" %>
       <% if !@courses.empty? %>
         <% @courses.each do |course| %>
-          <div class="search-block">
+          <div class="text-block">
 
-						<div class="text">
+						<div class="text" id="text-<%= course.id %>">
               <div class="name"><h1><%= raw(course.name) %></h1></div>
               <div class="staff"><%= raw(course.staff) %></div>
               <div class="catalog-number"><%= raw(course.catalog_number) %></div>

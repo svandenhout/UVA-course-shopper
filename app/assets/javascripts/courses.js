@@ -90,6 +90,26 @@ $(document).ready(function() {
   	return true;
   }
 
+	// returns the TextBlocks with courses to directly append to an element
+	buildTextBlocks = function(list) {
+  	var textBlock = "";
+  	for(var i = 0; i < list.length; i++) {
+			textBlock = textBlock +
+    	"<div class='text-block'>" +
+      "<div class='text'>" + 
+      "<div class='name'><h1>" + list[i].name + "</h1></div>" +
+      "<div class='catalog-number'><p>" + list[i].catalog_number + "</p></div>"+
+      "<div class='staff'><p>" + list[i].staff + "</p></div>" +
+      "<div class='description'><p>" + list[i].description + "</p></div>" +
+      "</div>" +
+      "<div class='buttons'>" + list[i].buttons +
+      "</div>" +
+      "</div>"
+    }
+    // console.log(textBlock);
+    return textBlock;
+  }
+
 
 
  /*
@@ -101,50 +121,24 @@ $(document).ready(function() {
   
   var list = new List();
 
-  if($("#following_list").length !== 0) {
-    for(var i = 0; i < list.followinglist.length; i++) {
-      $("#following_list").append(list.followinglist[i].show);
-      $("#following_list").append("<h1>" + list.followinglist[i].name + "</h1>");
-      $("#following_list").append(
-      	"<p>" + list.followinglist[i].catalog_number + "</p>"
-      );
-      $("#following_list").append("<p>" + list.followinglist[i].staff + "</p>");
-      $("#following_list").append(
-      	"<p>" + list.followinglist[i].description + "</p>"
-      );
-    }
+  if($("#following-list").length !== 0) {
+		$("#following-list").append(buildTextBlocks(list.followinglist));
   }
 
-  if($("#shopping_list").length !== 0) {
-    for(var i = 0; i < list.shoppinglist.length; i++) {
-      $("#shopping_list").append(list.shoppinglist[i].show);
-      $("#shopping_list").append("<h1>" + list.shoppinglist[i].name + "</h1>");
-      $("#shopping_list").append(
-      	"<p>" + list.shoppinglist[i].catalog_number + "</p>"
-      );
-      $("#shopping_list").append("<p>" + list.shoppinglist[i].staff + "</p>");
-      $("#shopping_list").append(
-      	"<p>" + list.shoppinglist[i].description + "</p>"
-      );
-    }
+  if($("#shopping-list").length !== 0) {
+  	console.log(buildTextBlocks(list.shoppinglist))
+    $("#shopping-list").append(buildTextBlocks(list.shoppinglist));
   }
 
   if($(".recently").length !== 0) {
-		for(var i = 0; i < list.recentlylist.length; i++) {
-      $(".recently").append(list.recentlylist[i].show);
-      $(".recently").append("<h1>" + list.recentlylist[i].name + "</h1>");
-      $(".recently").append(
-      	"<p>" + list.recentlylist[i].catalog_number + "</p>"
-      );
-      $(".recently").append("<p>" + list.recentlylist[i].staff + "</p>");
-      $(".recently").append("<p>" + list.recentlylist[i].description + "</p>");
-    }
-
+    $(".recently").append(buildTextBlocks(list.recentlylist));
   }
   
   // checks for a detail page to add to the recently viewed list
   if($(".detail").length !== 0) {
   	var id = $(this).attr('id');
+
+  	var buttons = $(this).find(".buttons").html();
     
     var name = $(this).find(".name").find("h1").html();
     var catalog_number = $(this).find(".catalog-number").html();
@@ -154,14 +148,15 @@ $(document).ready(function() {
     list.addObjectToList({
     		id: id,
         type: "recently",
+        buttons: buttons,
         name: name,
+        staff: staff,
         catalog_number: catalog_number,
         description: description
     });
   }
-
-  $(".add").click(function() {
   
+  $(".add").click(function() {
     if($('.shopping').length !== 0) {
       var type = 'shopping';
     }
@@ -170,20 +165,20 @@ $(document).ready(function() {
       var type = 'following';
     }
 
-    // content passed through attributes
     var id = $(this).attr("id");
+    var textid = "#text-" + id;
 
-    // content passed through content
-    // .add is nested a bit deep so i need a couple of parent() calls
-    var name = $(this).parent().find(".name").find("h1").html();
-    var catalog_number =
-    	$(this).parent().find(".catalog-number").html();
-    var staff = $(this).parent().find(".staff").html();
-    var description = $(this).parent().find(".description").html();
+    var buttons = $(this).parent().html();
+  
+    var name = $(textid).find(".name").find("h1").html();
+    var catalog_number = $(textid).find(".catalog-number").html();
+    var staff = $(textid).find(".staff").html();
+    var description = $(textid).find(".description").html();
     
     list.addObjectToList({
       type: type,
-      id: id, 
+      id: id,
+      buttons:buttons,
       name: name,
       catalog_number: catalog_number,
       staff: staff, 

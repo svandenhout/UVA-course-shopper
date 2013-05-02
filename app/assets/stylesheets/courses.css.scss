@@ -30,6 +30,7 @@ body {
 	width: 150pt;
   height: 60pt;
   float: left;
+  margin: 0 1pt 0 1pt;
 	background-image: url('list-button.png');
   background-size: 150pt 60pt;
   text-align: center;
@@ -44,7 +45,20 @@ body {
 	background-image: url('current-list-button.png');
 }
 
-/* index page css */
+/* content css */
+
+.search-link {
+	display: block;
+  background-size: 304pt 42pt;
+  margin: 10pt 0 10pt 0;
+	width: 305pt;
+  height: 42pt;
+  background-repeat: no-repeat;
+	background-image: url('search-button.png');
+  text-align: center;
+  line-height: 35pt;
+}
+
 .index-container .search {
   height: 40%;
   overflow: auto;
@@ -55,48 +69,56 @@ body {
   overflow: auto;
 }
 
-/* search results */
-.search-block {
+/* text blocks */
+.text-block {
 	height: 55pt;
 	border-bottom: solid;
   border-width: 1px;
   border-color: $border-color;
+  background-color: #F2F2F2;
+
 }
 
-.search-block .text {
+.text-block .text {
 	float: left;
   overflow: hidden;
-  white-space:nowrap; 
+  white-space: nowrap;
+  text-overflow: ellipsis;
   width: calc(100% - 80pt);
+  margin-left: 5px;
 }
 
-.search-block .text .name h1 {
+.text-block .text .name h1 {
 	font-size: 16pt;
   text-overflow: ellipsis;
 }
 
-.search-block .text .catalog-number {
+.text-block .text .staff {
+	margin-top: -8pt;
+}
+
+.text-block .text .catalog-number {
 	display: none;
 }
 
-.search-block .text .description {
+.text-block .text .description {
 	display: none;
 }
 
-.search-block .buttons {
+.text-block .buttons {
 	position: absolute;
 	right: 0;
 }
 
-.search-block .buttons .view {
+.text-block .buttons .view {
   margin: 5pt 10pt 0pt 0pt;
 }
 
-.search-block .buttons .add {
+.text-block .buttons .add {
   margin: 5pt 10pt 0pt 0pt;
 }
 
-/* recently viewed */
+/* titles */
 .title {
 	height: 20pt;
   width: 100%;

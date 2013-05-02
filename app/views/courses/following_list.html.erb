@@ -1,3 +1,8 @@
-</br><%= link_to "search", courses_path(:type => "following")  %>
-<div id="following_list">
+
+<%=
+	link_to "search",
+  courses_path(:type => "following"),
+  :class => "search-link"
+%>
+<div id="following-list" class="text">
 </div>
