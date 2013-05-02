@@ -104,9 +104,8 @@ $(document).ready(function() {
       "</div>" +
       "<div class='buttons'>" + list[i].buttons +
       "</div>" +
-      "</div>"
+      "</div>";
     }
-    // console.log(textBlock);
     return textBlock;
   }
 
@@ -126,17 +125,18 @@ $(document).ready(function() {
   }
 
   if($("#shopping-list").length !== 0) {
-  	console.log(buildTextBlocks(list.shoppinglist))
     $("#shopping-list").append(buildTextBlocks(list.shoppinglist));
   }
 
+  // TODO: recently only adds one recent text-block
   if($(".recently").length !== 0) {
     $(".recently").append(buildTextBlocks(list.recentlylist));
   }
   
   // checks for a detail page to add to the recently viewed list
   if($(".detail").length !== 0) {
-  	var id = $(this).attr('id');
+  
+  	var id = $(this).find(".add").attr('id');
 
   	var buttons = $(this).find(".buttons").html();
     
