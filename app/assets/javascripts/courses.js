@@ -65,6 +65,36 @@ $(document).ready(function() {
     }
   }
 
+	// removes an object from a list by id
+  List.prototype.removeObjectFromList = function(id, list) {
+		if(object.type === "following") {
+			for(var i = 0; i < followinglist.length; i++) {
+        if(followinglist[i][id] === id) {
+          followinglist.splice(i, 1);
+        }
+      }
+      this.storeFollowingLocal(this.followinglist);
+  	}
+
+    if(object.type === "shopping") {
+      for(var i = 0; i < shoppinglist.length; i++) {
+        if(shoppinglist[i][id] === id) {
+          shoppinglist.splice(i, 1);
+        }
+      }
+      this.storeShoppingLocal(this.shoppinglist);
+    }
+
+    if(object.type === "recently") {
+      for(var i = 0; i < recentlylist.length; i++) {
+        if(recentlylist[i][id] === id) {
+          recentlylist.splice(i, 1);
+        }
+      }
+      this.storeRecentlyLocal(this.recentlylist);
+    }
+  }
+
   // stores the list into the browsers local storage system
   List.prototype.storeFollowingLocal = function(list) {
   	localStorage.following = JSON.stringify(list);
@@ -128,7 +158,6 @@ $(document).ready(function() {
     $("#shopping-list").append(buildTextBlocks(list.shoppinglist));
   }
 
-  // TODO: recently only adds one recent text-block
   if($(".recently").length !== 0) {
     $(".recently").append(buildTextBlocks(list.recentlylist));
   }
@@ -186,4 +215,15 @@ $(document).ready(function() {
     });
   });
 
+  $(".remove").click(function() {
+		var id = $(this).attr("id");
+
+    if($('.shopping').length !== 0) {
+			list.removeObjectFromList(id, list.shoppinglist);
+    }
+
+    if($('.following').length !== 0) {
+			list.removeObjectFromList(id, list.followinglist);
+    }
+  });
 });
