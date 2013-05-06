@@ -67,31 +67,25 @@ $(document).ready(function() {
 
 	// removes an object from a list by id
   List.prototype.removeObjectFromList = function(id, list) {
-		if(object.type === "following") {
-			for(var i = 0; i < followinglist.length; i++) {
-        if(followinglist[i][id] === id) {
-          followinglist.splice(i, 1);
+  	console.log(id);
+    console.log(list[0].type);
+		if(list[0].type === "following") {
+			for(var i = 0; i < this.followinglist.length; i++) {
+        if(this.followinglist[i].id === id) {
+          this.followinglist.splice(i, 1);
         }
       }
       this.storeFollowingLocal(this.followinglist);
   	}
 
-    if(object.type === "shopping") {
-      for(var i = 0; i < shoppinglist.length; i++) {
-        if(shoppinglist[i][id] === id) {
-          shoppinglist.splice(i, 1);
+    if(list[0].type === "shopping") {
+      for(var i = 0; i < this.shoppinglist.length; i++) {
+        if(this.shoppinglist[i].id === id) {
+        	console.log('hallo')
+          this.shoppinglist.splice(i, 1);
         }
       }
       this.storeShoppingLocal(this.shoppinglist);
-    }
-
-    if(object.type === "recently") {
-      for(var i = 0; i < recentlylist.length; i++) {
-        if(recentlylist[i][id] === id) {
-          recentlylist.splice(i, 1);
-        }
-      }
-      this.storeRecentlyLocal(this.recentlylist);
     }
   }
 

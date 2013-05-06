@@ -45,6 +45,19 @@ body {
 	background-image: url('current-list-button.png');
 }
 
+/* hiding buttons */
+.search .buttons .remove {
+  display: none;
+}
+
+#following-list .buttons .add {
+	display: none;
+}
+
+#shopping-list .buttons .add {
+	display: none;
+}
+
 /* content css */
 
 .search-link {
@@ -116,6 +129,10 @@ body {
 
 .text-block .buttons .add {
   margin: 5pt 10pt 0pt 0pt;
+}
+
+.text-block .buttons .remove {
+	margin: 5pt 10pt 0pt 0pt;
 }
 
 /* titles */
