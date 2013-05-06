@@ -51,6 +51,7 @@ $(document).ready(function() {
     if(object.type === "shopping") {
       if(this.checkDoubleId(object.id, this.shoppinglist)) {
         this.shoppinglist.push(object);
+        console.log(object)
         this.storeShoppingLocal(this.shoppinglist);
       }else {
 				alert("you have already added this course to the list");
@@ -183,7 +184,7 @@ $(document).ready(function() {
     if($('.shopping').length !== 0) {
       var type = 'shopping';
     }
-
+    
     if($('.following').length !== 0) {
       var type = 'following';
     }

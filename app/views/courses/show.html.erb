@@ -1,16 +1,19 @@
 <div class="detail" id="@course.id">
-	<div class="name">
-		<h1><%= raw(@course.name) %></h1>
-		<div class="buttons">
-      <%= button_tag 'add', :id => @course.id, :class => 'add' %>
-      <%= link_to 'view', @course, :class=> 'view' %>
-		</div>
+  <div class="buttons">
+    <%= button_tag 'add', :id => @course.id, :class => 'add' %>
+    <%= link_to 'view', @course, :class=> 'view' %>
+		<%= button_tag 'remove', :id => @course.id, :class => 'remove' %>
   </div>
-	<div class="catalog-number"><%= raw(@course.catalog_number) %></div>
-	<div class="description"><%= raw(@course.description) %></div>
-	<div class="ects"><%= raw(@course.ects) %></div>
-	<div class="institute"><%= raw(@course.institute) %></div>
-	<div class="participant-count"><%= raw(@course.participant_count) %></div>
-	<div class="programmes"><%= raw(@course.programmes) %></div>
-	<div class="staff"><%= raw(@course.staff) %></div>
+  <div class="text" id="text-<%= @course.id %>">
+    <div class="name">
+    	<h1><%= raw(@course.name) %></h1>
+    </div>
+    <div class="catalog-number"><%= raw(@course.catalog_number) %></div>
+    <div class="description"><%= raw(@course.description) %></div>
+    <div class="ects"><%= raw(@course.ects) %></div>
+    <div class="institute"><%= raw(@course.institute) %></div>
+    <div class="participant-count"><%= raw(@course.participant_count) %></div>
+    <div class="programmes"><%= raw(@course.programmes) %></div>
+    <div class="staff"><%= raw(@course.staff) %></div>
+	</div>
 </div>

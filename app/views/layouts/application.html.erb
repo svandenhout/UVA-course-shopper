@@ -31,7 +31,8 @@
   <% else %>
     <%=
       link_to "My shopping list",
-      shopping_list_courses_path(:type => "shopping")
+      shopping_list_courses_path(:type => "shopping"),
+      :class => "shopping"
   	%>
     <%=
     	link_to "Courses I'm following",
